@@ -16,6 +16,19 @@
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <script type="text/javascript">
+    function update() {
+      var suffix = document.getElementById('suffix').value;
+      var domain = document.getElementById('domain').value;
+      document.getElementById('bookmarklet').href = "javascript:void%20function(){s=%22" + encodeURIComponent(suffix) +  "%22,d=%22" + encodeURIComponent(domain) + "%22,l=location.href.split(%22/%22),location.href=d+encodeURIComponent(l[l.length-1].replace(/_/g,%22%20%22))+encodeURIComponent(s)}();"
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      update();
+    });
+
+  </script>
+
 </head>
 
 <body>
@@ -36,10 +49,17 @@
         <span class="blc"></span><span class="trc"></span>
         </div>
         <article class="markdown-body">
+
+          <form action="">
+            <label for="domain">Domain: </label> <input style="width: 300px" id="domain" onkeyup="update();" type="text" name="domain" value="https://flux.duckduckgo.com/?q=" /> <br />
+            <label for="suffix">Suffix (text which gets attached after the query): </label> <input id="suffix" type="text" onkeyup="update();" name="suffix" value=" wikipedia deutsch" /> <br />
+            (The bookmarklet is updated as you type.)
+          </form>
+
           <p>In order to use it drag this box into your bookmarks.</p>
 
-          <a style="margin: 10px; padding 10px; color: #3d3d3d background-color: #f23e25"
-            href="javascript:void%20function(){s=location.href.split(%22/%22),location.href=%22https://flux.duckduckgo.com/%3Fq=%22+encodeURIComponent(s[s.length-1].replace(%22_%22,%22%2520%22))}();">
+          <a style="padding: 20px !important; border-radius: 15px; color: #fff; background-color: #f23e25" id="bookmarklet"
+            href="javascript:void%20function(){s=%22%20wikipedia%20deutsch%22,d=%22https://flux.duckduckgo.com/%3Fq=%22,l=location.href.split(%22/%22),location.href=d+encodeURIComponent(l[l.length-1].replace(/_/g,%22%20%22))+encodeURIComponent(s)}();">
             WikiForward!
           </a>
         </article>
