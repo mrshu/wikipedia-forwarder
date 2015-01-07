@@ -20,7 +20,7 @@
     function update() {
       var suffix = document.getElementById('suffix').value;
       var domain = document.getElementById('domain').value;
-      document.getElementById('bookmarklet').href = "javascript:void%20function(){s=%22" + encodeURIComponent(suffix) +  "%22,d=%22" + encodeURIComponent(domain) + "%22,l=location.href.split(%22/%22),location.href=d+encodeURIComponent(l[l.length-1].replace(/_/g,%22%20%22))+encodeURIComponent(s)}();"
+      document.getElementById('bookmarklet').href = "javascript:void%20function(){s=%22" + encodeURIComponent(suffix) +  "%22,d=%22" + encodeURIComponent(domain) + "%22,l=location.href.split(%22/%22),location.href=d+(l[l.length-1].replace(/_/g,%22%20%22))+encodeURIComponent(s)}();"
     }
 
     document.addEventListener("DOMContentLoaded", function() {
