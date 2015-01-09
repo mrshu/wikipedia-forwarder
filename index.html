@@ -67,17 +67,23 @@
         <article class="markdown-body">
 
           <form action="">
-            <label for="domain">Domain: </label> <input style="width: 300px" id="domain" onkeyup="update();" type="text" name="domain" value="https://flux.duckduckgo.com/?q=" /> <br />
+            <label for="domain">Domain: </label> <input id="domain" onkeyup="update();" type="text" name="domain" value="https://flux.duckduckgo.com/?q=" /> <br />
             <label for="suffix">Suffix (text which gets attached after the query): </label> <input id="suffix" type="text" onkeyup="update();" name="suffix" value=" wikipedia deutsch" /> <br />
             (The bookmarklet is updated as you type.)
           </form>
 
+          <br />
+
           <p>In order to use it drag this box into your bookmarks.</p>
+
+          <br />
 
           <a style="padding: 20px !important; border-radius: 15px; color: #fff; background-color: #f23e25" id="bookmarklet"
             href="javascript:void%20function(){s=%22%20wikipedia%20deutsch%22,d=%22https://flux.duckduckgo.com/%3Fq=%22,l=location.href.split(%22/%22),location.href=d+encodeURIComponent(l[l.length-1].replace(/_/g,%22%20%22))+encodeURIComponent(s)}();">
             WikiForward!
           </a>
+
+          <br />
 
           <p>
             Once on a Wikipedia page, simply click on it and it will take you to the domain you specified above.
